@@ -1,0 +1,173 @@
+#g4691,
+#g4694 {
+    animation: simpleApplePulse 4s infinite ease-in-out;
+    transform-origin: center;
+}
+
+@keyframes simpleApplePulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+#caballo01 {
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+#caballo02 {
+    transform: rotate(135deg);
+    transform-origin: center;
+}
+
+#caballo03 {
+    transform: rotate(-45deg);
+    transform-origin: center;
+}
+
+#caballo04 {
+    transform: rotate(-135deg);
+    transform-origin: center;
+}
+
+#caballo01,
+#caballo02,
+#caballo03,
+#caballo04 {
+    animation: caballoVibracion 4s infinite ease-in-out;
+}
+
+@keyframes caballoVibracion {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(2deg) scale(1.02);
+    }
+    50% {
+        transform: rotate(-2deg) scale(0.98);
+    }
+    75% {
+        transform: rotate(1deg) scale(1.01);
+    }
+}
+
+#cap1 {
+    animation: paloAgitacion 3s infinite ease-in-out;
+    transform-origin: left;
+}
+
+#cap2 {
+    animation: paloAgitacion 4s infinite ease-in-out;
+    transform-origin: right;
+}
+
+#palo {
+    animation: paloAgitacion 2s infinite ease-in-out;
+    transform-origin: center;
+}
+
+@keyframes paloAgitacion {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-3deg);
+    }
+    75% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes draw-and-erase-soft {
+    0% {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+    }
+    40% {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+    }
+    60% {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: -1000;
+    }
+}
+
+#fulla {
+    stroke: black;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round; 
+    animation: draw-and-erase-soft 8s cubic-bezier(0.65, 0, 0.35, 1) infinite; 
+    transform-origin: center;
+}
+
+svg {
+    overflow: visible;
+    height: 500px;
+}
+
+#left,
+#middle,
+#right {
+    opacity: 0; 
+    animation-fill-mode: forwards; 
+}
+
+#left {
+    animation: fade-in 3s ease-in-out infinite;
+}
+
+#middle {
+    animation: fade-in 3s ease-in-out infinite;
+    animation-delay: 0.5s; 
+}
+
+#right {
+    animation: fade-in 3s ease-in-out infinite;
+    animation-delay: 1s; 
+}
+
+@keyframes fade-in {
+    0%, 20% {
+        opacity: 0; 
+    }
+    30%, 80% {
+        opacity: 1; 
+    }
+    90%, 100% {
+        opacity: 0; 
+    }
+}
+
+.svg {
+    width: 150px;
+    height: auto;
+}
+  
+.left-wing, #star1, #star2, #star3 {
+    animation: left 1s linear infinite alternate;  
+    transform-origin: right;
+}
+  
+.right-wing, #star10, #star11, #star12{
+    animation: right 1s linear infinite alternate;  
+    transform-origin: left;
+}
+
+@keyframes left{
+    to {transform:rotateY(15deg)}
+}
+@keyframes right{
+    to {transform:rotateY(-15deg)}
+}
